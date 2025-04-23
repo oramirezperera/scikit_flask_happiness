@@ -1,4 +1,5 @@
 import pandas as pd
+import joblib
 
 class Utils:
     
@@ -14,4 +15,5 @@ class Utils:
         return X,y
     
     def model_export(self, clf, score):
-        pass
+        print(score)
+        joblib.dump(clf, f'./models/best_model_{round(score,4)}.plk')
