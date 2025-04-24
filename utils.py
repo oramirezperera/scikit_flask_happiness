@@ -12,8 +12,11 @@ class Utils:
     def features_target(self, dataset, drop_cols, y):
         X = dataset.drop(drop_cols, axis=1)
         y = dataset[y]
-        return X,y
+        return X.values ,y.values
     
     def model_export(self, clf, score):
         print(score)
         joblib.dump(clf, f'./models/best_model.pkl')
+
+    def load_model(self, path):
+        return joblib.load(path)
